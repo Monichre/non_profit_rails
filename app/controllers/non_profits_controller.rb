@@ -1,5 +1,5 @@
 class NonProfitsController < ApplicationController
-  before_action :authenticate_non_profit!
+
 
   def index
     @non_profits = NonProfit.all
@@ -50,6 +50,6 @@ class NonProfitsController < ApplicationController
 
   private
   def non_profit_params()
-    params.require(:non_profit).permit(:name, :email, :encrypted_password)
+    params.require(:non_profit).permit(:name, :email, :password)
   end
 end
