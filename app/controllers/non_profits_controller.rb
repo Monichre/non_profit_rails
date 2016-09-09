@@ -1,4 +1,6 @@
 class NonProfitsController < ApplicationController
+  before_action :authenticate_non_profit!
+
   def index
     @non_profits = NonProfit.all
   end
@@ -15,7 +17,7 @@ class NonProfitsController < ApplicationController
   def create
     @non_profit = NonProfit.new(non_profit_params)
     if @non_profit.save
-      flash[:notice] = "NonProfit Successfully Added"
+      flash[:notice] = "Non Profit Successfully Added"
       redirect_to non_profits_path
     else
       flash[:notice] = "Something happened, Let's try that again."
@@ -48,6 +50,6 @@ class NonProfitsController < ApplicationController
 
   private
   def non_profit_params()
-    params.require(:non_profit).permit(:name)
+    params.require(:non_profit).permit(:name, :email, :encrypted_password)
   end
 end
