@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160909183644) do
+ActiveRecord::Schema.define(version: 20160909191032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 20160909183644) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
+  end
+
+  create_table "categories_non_profits", id: false, force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "non_profit_id"
   end
 
   create_table "non_profits", force: :cascade do |t|
@@ -37,6 +42,11 @@ ActiveRecord::Schema.define(version: 20160909183644) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_non_profits_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_non_profits_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "non_profits_users", id: false, force: :cascade do |t|
+    t.integer "non_profit_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
