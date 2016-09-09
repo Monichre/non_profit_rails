@@ -1,6 +1,5 @@
 class NonProfitsController < ApplicationController
-
-
+  
   def index
     @non_profits = NonProfit.all
   end
