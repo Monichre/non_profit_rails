@@ -1,0 +1,13 @@
+<h1>Browse our non profits</h1>
+
+<% if @non_profits.any? %>
+  <ul>
+    <% @non_profits.each do |non_profit| %>
+      <li><%= non_profit.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    No non profits at this time
+  </p>
+<% end %>
