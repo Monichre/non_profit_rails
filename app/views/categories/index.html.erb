@@ -1,0 +1,13 @@
+<h1>Browse our non profits by category</h1>
+
+<% if @categories.any? %>
+  <ul>
+    <% @categories.each do |category| %>
+      <li><%= category.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    No categories at this time
+  </p>
+<% end %>
