@@ -1,4 +1,4 @@
-<h1><%= @user.name %></h1>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
 <% if @user.non_profits.any? %>
 <ul>
@@ -15,6 +15,9 @@
 <% end %>
 
 <section>
+  <p>
+    <%= link_to "Edit your profile", edit_user_path(@user) %>
+  </p>
   <p>
     <%= link_to "Browse all our non profits", non_profits_path %>
   </p>
